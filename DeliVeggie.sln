@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggie", "DeliVeggie\DeliVeggie.csproj", "{A054F67F-315E-4641-934E-C4C89C1C3EDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A054F67F-315E-4641-934E-C4C89C1C3EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A054F67F-315E-4641-934E-C4C89C1C3EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A054F67F-315E-4641-934E-C4C89C1C3EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A054F67F-315E-4641-934E-C4C89C1C3EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B5AD6A8-2C16-4E55-ADC4-D19AF0BFE0D4}
+	EndGlobalSection
+EndGlobal
