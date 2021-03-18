@@ -1,3 +1,4 @@
+using DeliVeggie.Infrastructure.RabbitMQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,8 @@ namespace DeliVeggie
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IPublisher, Publisher>();
+            services.AddSwaggerGen();
             services.AddControllers();
         }
 
@@ -37,7 +40,11 @@ namespace DeliVeggie
             }
 
             app.UseHttpsRedirection();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API documentation");
+            });
             app.UseRouting();
 
             app.UseAuthorization();

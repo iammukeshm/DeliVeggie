@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EasyNetQ" Version="7.0.0-alpha4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DeliVeggie.Shared.Models\DeliVeggie.Shared.Models.csproj" />
+  </ItemGroup>
+
+</Project>
