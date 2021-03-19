@@ -8,7 +8,7 @@ namespace DeliVeggie.Infrastructure.RabbitMQ
 {
     public interface IPublisher
     {
-        IEnumerable<ProductResponse> RequestForAllProducts(ProductsRequest request);
-        ProductDetailsResponse RequestProductDetails(ProductDetailsRequest request);
+        IResponse RequestForAllProducts(ProductsRequest request);
+        IResponse RequestProductDetails(ProductDetailsRequest request);
     }
 }

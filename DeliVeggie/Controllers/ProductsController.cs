@@ -1,5 +1,6 @@
 ﻿using DeliVeggie.Infrastructure.RabbitMQ;
 using DeliVeggie.Shared.Models.Requests;
+using DeliVeggie.Shared.Models.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliVeggie.Controllers
@@ -26,8 +27,11 @@ namespace DeliVeggie.Controllers
         public IActionResult GetByIdAsync(string id)
         {
             var request = new ProductDetailsRequest() { Id = id };
-            var data = _publisher.RequestProductDetails(request);
-            return Ok(data);
+            if (!(_publisher.RequestProductDetails(request) is Response<ProductDetailsResponse> response))
+            {
+                return NotFound();
+            }
+            return Ok(response.Data);
         }
     }
 }

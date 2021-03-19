@@ -12,7 +12,7 @@ namespace DeliVeggie.Infrastructure.RabbitMQ
         private readonly IBus _bus;
         public Subscriber()
         {
-            _bus = RabbitHutch.CreateBus("host=localhost");
+            _bus = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
         }
         public void Subscribe(Func<ProductDetailsRequest, IResponse> data)
         {

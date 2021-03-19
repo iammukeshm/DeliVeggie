@@ -12,18 +12,18 @@ namespace DeliVeggie.Infrastructure.RabbitMQ
         private readonly IBus _bus;
         public Publisher()
         {
-            _bus = RabbitHutch.CreateBus("host=localhost");            
+            _bus = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");            
         }
 
-        public IEnumerable<ProductResponse> RequestForAllProducts(ProductsRequest request)
+        public IResponse RequestForAllProducts(ProductsRequest request)
         {
-            return _bus.Rpc.Request<ProductsRequest, IEnumerable<ProductResponse>>(request);
+            return _bus.Rpc.Request<ProductsRequest, IResponse>(request);
 
         }
 
-        public ProductDetailsResponse RequestProductDetails(ProductDetailsRequest request)
+        public IResponse RequestProductDetails(ProductDetailsRequest request)
         {
-            return _bus.Rpc.Request<ProductDetailsRequest, ProductDetailsResponse>(request);
+            return _bus.Rpc.Request<ProductDetailsRequest, IResponse>(request);
         }
     }
 }
