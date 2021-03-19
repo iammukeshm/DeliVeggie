@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DeliVeggie.Infrastructure.RabbitMQ
 {
-    public interface ISubscriber
+    public interface ISubscriber : IDisposable
     {
         void Subscribe(Func<IRequest, IResponse> data);
     }

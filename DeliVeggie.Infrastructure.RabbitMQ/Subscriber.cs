@@ -2,8 +2,6 @@
 using DeliVeggie.Shared.Models.Responses;
 using EasyNetQ;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DeliVeggie.Infrastructure.RabbitMQ
 {
@@ -17,7 +15,23 @@ namespace DeliVeggie.Infrastructure.RabbitMQ
         }
         public void Subscribe(Func<IRequest, IResponse> data)
         {
-            _bus.Rpc.Respond(data);
+             _bus.Rpc.Respond(data);
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        private bool _disposed;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+
+            if (disposing)
+                _bus?.Dispose();
+
+            _disposed = true;
         }
     }
 }

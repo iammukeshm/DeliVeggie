@@ -15,7 +15,7 @@ namespace DeliVeggie.Microservice.Products
         private static void Main(string[] args)
         {
             Console.WriteLine("Product Microservice Started..");
-            _services = new ServiceCollection().AddSingleton<ISubscriber, Subscriber>().BuildServiceProvider();
+            _services = new ServiceCollection().AddSingleton<ISubscriber>(x=> new Subscriber()).BuildServiceProvider();
             var bus = _services.GetService<ISubscriber>();
             while (true)
             {
