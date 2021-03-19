@@ -2,6 +2,8 @@
 using DeliVeggie.Shared.Models.Requests;
 using DeliVeggie.Shared.Models.Responses;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DeliVeggie.Controllers
 {
@@ -17,17 +19,23 @@ namespace DeliVeggie.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllAsync()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var request = new ProductsRequest();
-            var data = _publisher.RequestForAllProducts(request);
-            return Ok(data);
+            var request = new Request<ProductsRequest>() { Data = new ProductsRequest()};
+            var data = await _publisher.Request(request);
+            if (!(data is Response<List<ProductResponse>> response))
+            {
+                return NotFound();
+            }
+            return Ok(response.Data);
         }
+
         [HttpGet("{id}")]
-        public IActionResult GetByIdAsync(string id)
+        public async Task<IActionResult> GetByIdAsync(string id)
         {
-            var request = new ProductDetailsRequest() { Id = id };
-            if (!(_publisher.RequestProductDetails(request) is Response<ProductDetailsResponse> response))
+            var request = new Request<ProductDetailsRequest>() { Data  = new ProductDetailsRequest() { Id = id }};
+            var message = await _publisher.Request(request);
+            if (!(message is Response<ProductDetailsResponse> response))
             {
                 return NotFound();
             }

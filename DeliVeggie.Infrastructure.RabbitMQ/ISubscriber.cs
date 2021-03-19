@@ -8,6 +8,6 @@ namespace DeliVeggie.Infrastructure.RabbitMQ
 {
     public interface ISubscriber
     {
-        void Subscribe(Func<ProductDetailsRequest, IResponse> data);
+        void Subscribe(Func<IRequest, IResponse> data);
     }
 }

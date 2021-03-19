@@ -1,14 +1,11 @@
 ﻿using DeliVeggie.Shared.Models.Requests;
 using DeliVeggie.Shared.Models.Responses;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace DeliVeggie.Infrastructure.RabbitMQ
 {
     public interface IPublisher
     {
-        IResponse RequestForAllProducts(ProductsRequest request);
-        IResponse RequestProductDetails(ProductDetailsRequest request);
+        Task<IResponse> Request(IRequest request);
     }
 }
