@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DeliVeggie.Infrastructure.MongoDb\DeliVeggie.Infrastructure.MongoDb.csproj" />
     <ProjectReference Include="..\DeliVeggie.Infrastructure.RabbitMQ\DeliVeggie.Infrastructure.RabbitMQ.csproj" />
     <ProjectReference Include="..\DeliVeggie.Shared.Models\DeliVeggie.Shared.Models.csproj" />
   </ItemGroup>
