@@ -19,10 +19,10 @@ namespace DeliVeggie.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync()
+        public IActionResult GetAllAsync()
         {
             var request = new Request<ProductsRequest>() { Data = new ProductsRequest()};
-            var data = await _publisher.Request(request);
+            var data = _publisher.Request(request);
             if (!(data is Response<List<ProductResponse>> response))
             {
                 return NotFound();
@@ -31,10 +31,10 @@ namespace DeliVeggie.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetByIdAsync(string id)
+        public IActionResult GetByIdAsync(string id)
         {
             var request = new Request<ProductDetailsRequest>() { Data  = new ProductDetailsRequest() { Id = id }};
-            var message = await _publisher.Request(request);
+            var message = _publisher.Request(request);
             if (!(message is Response<ProductDetailsResponse> response))
             {
                 return NotFound();

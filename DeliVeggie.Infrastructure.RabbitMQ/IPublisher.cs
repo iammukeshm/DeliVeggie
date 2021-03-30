@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace DeliVeggie.Infrastructure.RabbitMQ
 {
-    public interface IPublisher : IDisposable
+    public interface IPublisher
     {
-        Task<IResponse> Request(IRequest request);
+        IResponse Request(IRequest request);
     }
 }
