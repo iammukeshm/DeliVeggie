@@ -35,6 +35,7 @@ namespace DeliVeggie.Infrastructure.MongoDb
         public async Task<ProductDetailsResponse> GetByIdAsync(ProductDetailsRequest request)
         {
             var product = await _product.Find(c => c.Id == request.Id).FirstOrDefaultAsync();
+            if (product == null) return null;
             var totalReductions = product.PriceReductions.Select(a => a.Reduction).Sum();
             var response = new ProductDetailsResponse
             {
