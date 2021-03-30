@@ -1,0 +1,23 @@
+<div class="container">
+    <p></p>
+    <h3>Details</h3>
+    <a [routerLink]="['/products']" routerLinkActive="active">Go Back</a>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+          <p>Id: </p>
+          <p>Name: </p>
+          <p>Entry Date:</p>
+          <p>Current Price:</p>
+        </div>
+        <div class="col-sm-6">
+          <p>{{product.id}}</p>
+          <p>{{product.name}}</p>
+          <p>{{product.entryDate | date }}</p>
+          <p>{{product.currentPrice}}</p>
+        </div>
+      </div>
+</div>
+
+  
+  
