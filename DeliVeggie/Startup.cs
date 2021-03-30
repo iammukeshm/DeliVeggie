@@ -24,6 +24,7 @@ namespace DeliVeggie
             services.AddSwaggerGen();
             services.AddControllers();
             services.AddSingleton<IPublisher>(x => new Publisher());
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +41,7 @@ namespace DeliVeggie
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Docs");
             });
             app.UseRouting();
+            app.UseCors(a => a.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let product of products">
+            <tr>
+              <th scope="row">{{product.id}}</th>
+              <th> <a  [routerLink]="['/products',product.id]" routerLinkActive="active">{{product.name}}</a> </th>
+            </tr>
+          </ng-container>
+    </tbody>
+  </table>
