@@ -34,14 +34,14 @@ namespace DeliVeggie.Infrastructure.MongoDb
 
         public async Task<ProductDetailsResponse> GetByIdAsync(ProductDetailsRequest request)
         {
-            var x = await _product.Find(c => c.Id == request.Id).FirstOrDefaultAsync();
-            var totalReductions = x.PriceReductions.Select(a => a.Reduction).Sum();
+            var product = await _product.Find(c => c.Id == request.Id).FirstOrDefaultAsync();
+            var totalReductions = product.PriceReductions.Select(a => a.Reduction).Sum();
             var response = new ProductDetailsResponse
             {
-                Id = x.Id,
-                Name = x.Name,
-                EntryDate = x.EntryDate,
-                CurrentPrice = (x.Price - totalReductions)
+                Id = product.Id,
+                Name = product.Name,
+                EntryDate = product.EntryDate,
+                CurrentPrice = (product.Price - totalReductions)
             };
             return response;
         }
